@@ -911,8 +911,18 @@ html.cine .passo.viva .broto { transform: scale(1) rotate(0deg); }
       setTimeout(function () { $('#frase').classList.remove('espera'); }, 1400);
     } });
     ST.create({ trigger: '.peso-pg', start: 'top 62%', once: true, onEnter: function () { $('#peso').classList.add('desenha'); } });
-    G.from('.bilhete', { y: -70, opacity: 0, rotate: function (i) { return [-14, 12, 10, -12][i]; }, duration: 1.25, ease: 'back.out(1.5)', stagger: .16,
-      scrollTrigger: { trigger: '.bilhetes', start: 'top 82%' }, clearProps: 'transform,opacity' });
+    var mmPeso = G.matchMedia();
+    // Computador: os bilhetes caem juntos na coluna da direita
+    mmPeso.add('(min-width: 901px)', function () {
+      G.from('.bilhete', { y: -70, opacity: 0, rotate: function (i) { return [-14, 12, 10, -12][i]; }, duration: 1.25, ease: 'back.out(1.5)', stagger: .16,
+        scrollTrigger: { trigger: '.bilhetes', start: 'top 82%' }, clearProps: 'transform,opacity' });
+    });
+    // Celular: cada bilhete sobe sozinho quando chega na tela, sem passar por cima da frase
+    mmPeso.add('(max-width: 900px)', function () {
+      $$('.bilhete').forEach(function (b) {
+        G.from(b, { y: 34, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: b, start: 'top 92%' }, clearProps: 'transform,opacity' });
+      });
+    });
 
     // Títulos com máscara
     $$('[data-split]:not([data-split="hero"])').forEach(function (el) {
