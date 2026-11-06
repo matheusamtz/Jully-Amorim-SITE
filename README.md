@@ -8,6 +8,10 @@ Uma página única em formato de storytelling: o visitante atravessa sete cenas 
 
 - `index.html` — o site completo em um único arquivo (estilos, scripts, foto, ilustrações e logo embutidos).
 - `logo/` — a assinatura "Jully Amorim" em SVG vetorial, nas cores lavanda, ameixa e branco.
+- `assets/fotos/` — retrato da Jully ampliado (736 × 1120) e o original.
+- `assets/ilustracoes/` — as cinco ilustrações em aquarela (consultório, adolescentes, adultos, grupos, arteterapia) em SVG e PNG com fundo transparente.
+- `assets/elementos/` — ramo de eucalipto em aquarela com fundo transparente.
+- `brandbook/` — brandbook da marca (`brandbook.md`), diagnóstico das peças originais (`diagnostico.md`), tokens de cor, tipografia e espaçamento (`tokens.json`) e as peças de referência.
 
 ## Publicar no GitHub Pages
 
